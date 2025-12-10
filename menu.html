@@ -1,0 +1,71 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Menú Principal - KESENFA</title>
+  <style>
+    body {
+      font-family: system-ui, Arial;
+      background: url("img/fondo.jpg") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .menu {
+      background: rgba(255,255,255,0.85);
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 320px;
+    }
+    h1 { color:#0e1430; margin-bottom: 30px; }
+    button {
+      display:block;
+      width:100%;
+      padding:12px;
+      border:none;
+      border-radius:10px;
+      background:#0e1430;
+      color:white;
+      margin-bottom:14px;
+      cursor:pointer;
+      transition: background .2s;
+    }
+    button:hover { background:#222b5a; }
+    #logout {
+      background:#d9534f;
+    }
+  </style>
+</head>
+<body>
+  <div class="menu">
+    <h1>Menú Principal</h1>
+    <p>Bienvenido: <b id="userName">DNI:</b></p>
+    <button onclick="location.href='pago de matricula.html'">💳 Pago de Matrículas</button>
+    <button onclick="location.href='pago de cuotas.html'">📦 Pagos de Cuotas</button>
+    <button id="logout">Cerrar sesión</button>
+  </div>
+
+  <script>
+    const SESS_KEY = "demo_session_v1";
+    function getSession(){ try{ return JSON.parse(localStorage.getItem(SESS_KEY)); }catch{ return null; } }
+    function clearSession(){ localStorage.removeItem(SESS_KEY); }
+
+    const s = getSession();
+    if(!s || !s.username){
+      window.location.replace("Login.html");
+    } else {
+      document.getElementById("userName").textContent = s.username;
+    }
+
+    document.getElementById("logout").onclick = () => {
+      clearSession();
+      window.location.replace("Login.html");
+    };
+  </script>
+</body>
+</html>
