@@ -1,2 +1,2 @@
-# base1
+# proyecto
 Proyecto de página web para el curso.
