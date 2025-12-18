@@ -69,7 +69,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </p>
 
       <form method="post" enctype="multipart/form-data" class="upload-form">
-        <label>Archivo (JPG, PNG o PDF)</label>
+        <label>Archivo:(JPG, PNG o PDF)</label>
+		<label>BCP:81726372234571 </label>
+		<label>CCI:82736483761726376473 </label>
         <input type="file" name="voucher" accept=".jpg,.jpeg,.png,.pdf" required>
 
         <div class="landing-actions">

@@ -74,24 +74,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
 
     <?php if ($invoice['status'] === 'OPEN' && ($_SESSION['user_role'] ?? '') === 'STUDENT'): ?>
       <div class="card">
-        <h3>Opciones de pago</h3>
-        <div class="row">
-          <div class="col">
-            <form method="post">
-              <input type="hidden" name="action" value="pay_card">
-              <button class="btn btn-accent">Pagar con tarjeta (simulado)</button>
-              <p class="small">Simula pasarela y confirma por "webhook".</p>
-            </form>
-          </div>
-          <div class="col">
-            <form method="post">
-              <input type="hidden" name="action" value="pay_transfer">
-              <button class="btn">Pago por transferencia (subir comprobante)</button>
-              <p class="small">El admin deberá verificar tu comprobante.</p>
-            </form>
-          </div>
-        </div>
-      </div>
+  <h3>Opción de pago</h3>
+
+  <div class="row justify-content-start">
+    <div class="col-12 text-start">
+      <form method="post">
+        <input type="hidden" name="action" value="pay_transfer">
+
+        <button class="btn">
+          Pago por transferencia (subir comprobante)
+        </button>
+
+        <p class="small">El admin verificará tu comprobante.</p>
+      </form>
+    </div>
+  </div>
+</div>
+
     <?php endif; ?>
 
     <div class="card">
